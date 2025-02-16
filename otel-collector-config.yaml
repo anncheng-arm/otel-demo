@@ -13,9 +13,6 @@ receivers:
       http:
         endpoint: 0.0.0.0:4318
 
-  opencensus:
-    endpoint: 0.0.0.0:55678
-
   jaeger:
     protocols:
       grpc:
@@ -26,9 +23,6 @@ receivers:
         endpoint: 0.0.0.0:6831
       thrift_http:
         endpoint: 0.0.0.0:14268
-
-  zipkin:
-    endpoint: 0.0.0.0:9411
 
 processors:
   batch:
@@ -44,12 +38,12 @@ service:
   pipelines:
 
     traces:
-      receivers: [otlp, opencensus, jaeger, zipkin]
+      receivers: [otlp, jaeger]
       processors: [batch]
       exporters: [debug]
 
     metrics:
-      receivers: [otlp, opencensus]
+      receivers: [otlp]
       processors: [batch]
       exporters: [debug, prometheus]
 

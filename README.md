@@ -31,11 +31,12 @@ $ newgrp docker
 | `docker-compose restart` | **Restart all containers** |
 | `docker-compose restart grafana` | **Restart a specific container (`grafana`)** |
 
-* Prometheus: http://[server_ip]::9090/
-* Grafana: http://[server_ip]::3000/ (default username/password: admin/admin)
-
 # Run the BMC sensor reading demo
 `python3 bmc_query_temp_otlp_demo.py`
+
+# Check the BMC sensor reading from dashboard
+* Prometheus: http://[server_ip]:9090/
+* Grafana: http://[server_ip]:3000/ (default username/password: admin/admin)
 
 
 
